@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Men Who Stare at Goats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 10px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      background: #e53e3e;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #c53030;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>The Men Who Stare at Goats: Chapter Summaries</h1>
+    <div class="card" onclick="openModal(0)">
+      <h2>Chapter 1: The Crazy Rulers of the World</h2>
+      <p>This chapter introduces the bizarre yet intriguing subject matter of the book...</p>
+    </div>
+    <div class="card" onclick="openModal(1)">
+      <h2>Chapter 2: Goat Lab</h2>
+      <p>This chapter explores one of the most famous experiments in the program...</p>
+    </div>
+    <div class="card" onclick="openModal(2)">
+      <h2>Chapter 3: The First Earth Battalion</h2>
+      <p>This chapter describes the visionary ideas of Lieutenant Colonel Jim Channon...</p>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-summary"></p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const chapters = [
+      {
+        title: "Chapter 1: The Crazy Rulers of the World",
+        summary: "This chapter introduces the bizarre yet intriguing subject matter of the book: the U.S. military's experiments with psychic warfare. It covers the origins of the program and hints at strange and often comical methods used to train soldiers for psychic abilities. One major focus is the concept of non-lethal weapons and using paranormal techniques to achieve military goals.",
+      },
+      {
+        title: "Chapter 2: Goat Lab",
+        summary: "This chapter explores one of the most famous experiments in the program: attempting to kill goats by staring at them. It delves into the story of soldiers trying to harness their mental focus to stop a goat's heart, revealing both the absurdity and the seriousness with which these experiments were undertaken.",
+      },
+      {
+        title: "Chapter 3: The First Earth Battalion",
+        summary: "This chapter describes the visionary ideas of Lieutenant Colonel Jim Channon, who dreamed of creating a new kind of soldier: the 'warrior monk.' The First Earth Battalion was meant to be a group of super soldiers trained in meditation, martial arts, and New Age philosophy, combining the physical and metaphysical to achieve peace and victory.",
+      },
+    ];
+
+    function openModal(index) {
+      const modal = document.getElementById("modal");
+      const title = document.getElementById("modal-title");
+      const summary = document.getElementById("modal-summary");
+
+      title.textContent = chapters[index].title;
+      summary.textContent = chapters[index].summary;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
